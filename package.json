@@ -1,0 +1,38 @@
+{
+  "name": "express-client-validator",
+  "version": "1.0.0",
+  "license": "BSD-3-Clause",
+  "description": "",
+  "main": "lib",
+  "scripts": {
+    "test": "mocha test",
+    "test:debug": "mocha --debug-brk test",
+    "test:dev": "mocha --watch test",
+    "compile": "coffee -c -o lib src",
+    "build": "npm test && npm run compile",
+    "preversion": "npm run build"
+  },
+  "keywords": [
+    "routes",
+    "clients",
+    "validator"
+  ],
+  "dependencies": {
+    "ajv": "~4.8.2",
+    "pg-promise": "~5.3.4",
+    "underscore": "~1.8.3"
+  },
+  "devDependencies": {
+    "chai": "~3.5.0",
+    "chai-as-promised": "~6.0.0",
+    "coffee-script": "~1.11.1",
+    "mocha": "~3.1.2",
+    "sinon": "~1.17.6",
+    "sinon-as-promised": "~4.0.2",
+    "sinon-chai": "~2.8.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git@github.com:MonsantoCo/express-client-validator.git"
+  }
+}
