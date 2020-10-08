@@ -35,7 +35,6 @@ validateSchema = (restrictedRoutes)->
         throw new Error('restricted routes list need to be provided')
 
     ajv = Ajv({allErrors: true, jsonPointers: true, missingRefs: false })
-    # configureRoutes(db)
     validate = ajv.compile(schema)
     data = validate(restrictedRoutes)
     if validate.errors 

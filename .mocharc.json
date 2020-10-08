@@ -1,0 +1,11 @@
+{
+  "require": "coffeescript/register",
+  "diff": true,
+  "recursive": true,
+  "reporter": "list",
+  "spec": "test/**/*Spec.coffee",
+  "file": ["test/setup"],
+  "ui": "bdd",
+  "watch-files": ["test/*Spec.coffee"],
+  "watch-ignore": ["lib/vendor"]
+}
