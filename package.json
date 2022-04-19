@@ -17,7 +17,7 @@
     "validator"
   ],
   "dependencies": {
-    "ajv": "~4.8.2",
+    "ajv": "~6.12.3",
     "underscore": "~1.12.1"
   },
   "devDependencies": {
