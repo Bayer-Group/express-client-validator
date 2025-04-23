@@ -34,7 +34,7 @@ describe "route client validator",->
                 setupAndRunTest(undefined,"restricted routes list need to be provided")
 
             it "when empty routes are configured", ->
-                setupAndRunTest([],"should NOT have less than 1 items")
+                setupAndRunTest([],"should NOT have fewer than 1 items")
 
             it "when route has a missing url property", ->
                 delete route.url
@@ -54,7 +54,7 @@ describe "route client validator",->
 
             it "when route methods property is emtpy", ->
                 route.methods = []
-                setupAndRunTest([route],"/0/methods should NOT have less than 1 items")
+                setupAndRunTest([route],"/0/methods should NOT have fewer than 1 items")
 
             it "when route method property is not strings", ->
                 route.methods = [0]
