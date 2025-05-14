@@ -26,7 +26,7 @@ clientIdHasAccess = (clientId, originalUrl, method = 'POST') ->
 validator = (req,res,next)->
     if clientIdHasAccess(req.headers[clientKey], req.originalUrl, req.method)
         next()
-    else 
+    else
         res.status(403)
         res.send("Invalid Client")
 
@@ -37,20 +37,20 @@ validateSchema = (restrictedRoutes)->
     ajv = Ajv({allErrors: true, jsonPointers: true, missingRefs: false })
     validate = ajv.compile(schema)
     data = validate(restrictedRoutes)
-    if validate.errors 
-        messages = validate.errors.map (error)->"#{error.dataPath} #{error.message}".trim() 
+    if validate.errors
+        messages = validate.errors.map (error)->"#{error.dataPath} #{error.message}".trim()
         throw new Error(messages)
 
 configure = ({headerClientKey,routes})->
     clientKey = if headerClientKey then headerClientKey else defaultClientKey
-    try 
+    try
         validateSchema(routes)
         appRoutes = _(routes).sortBy('url').reverse()
         Promise.resolve("routes configured")
     catch errors
         Promise.reject(errors)
 
-module.exports = {validator,configure,clientIdHasAccess}
-        
+module.exports = {validator,configure,clientIdHasAccess,findMatchingRoute}
 
-    
+
+
